@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Voice Note Translations</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+     <string name="title_activity_main">Voice Notes</string>
+    <string name="emptyList">There is no elements on the list.</string>
+    <string name="amountOfaudioFiles"># notes.</string>
+    <string name="amountOfaudioFilesWithTranslationg"># translations.</string>
+    <string name="audioNameItem">Audio Name</string>
+    <string name="translationWord">translation</string>
+    <string name="title_activity_add_audio">AddAudioActivity</string>
+    <string name="startRecording">Start Recording</string>
+    <string name="Recording">Recording...</string>
+    <string name="voiceNoteName">Voice note name:</string>
+    <string name="mandatoryFile">Mandatory field</string>
+    <string name="fileName">You must enter a file name.</string>
+    <string name="fileError">Creating file Error.</string>
+    <string name="recordingError">Recording start error</string>
+    <string name="recordingFinish">Recording finished</string>
+    <string name="recordingFinishMes">The void note had been created.</string>
+    <string name="audioFileExist">There is an other audio note with that name.\nPlease choose an other name.</string>
+    <string name="recording">You most finish your voice note recording.</string>
+    <string name="recordAudioFirst">You most record a voice note first.</string>
+    <string name="audioFileAddToDB">The voice note has being add, and will be send to the server.</string>
+    <string name="noAudioFileAsociated">There is no audio file associated.</string>
+    <string name="addANewVoiceNote">Add a new voice note.</string>
+    <string name="audioDeleted">(File deleted)</string>
+    <string name="title_activity_audio_detail">AudioDetailActivity</string>
+    <string name="audioLanguage">Audio language:</string>
+    <string name="translations">Translations:</string>
+    <string name="interminated">Indeterminate</string>
+    <string name="voiceNoteMainLanguage">Voice note language:</string>
+    <string name="translationTo">Requested translations:</string>
+    <string name="audioDescription">Voice note description:</string>
+
+    <string name="addTranslationDialogTitle">Add translation</string>
+
+    <string name="webServiceUrl">http://192.168.1.72:8080/VoiceProcessingConf.svc/VoiceProcessingService</string>
+</resources>

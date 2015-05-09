@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Notas de Voz</string>
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="action_settings">Propiedades</string>
+    <string name="emptyList">No hay elenmentos en la lista.</string>
+    <string name="title_activity_main">Notas de Audio</string>
+
+    <string name="amountOfaudioFiles"># notas.</string>
+    <string name="amountOfaudioFilesWithTranslationg"># traducciones.</string>
+
+    <string name="audioNameItem">Nombre del audio</string>
+    <string name="translationWord">traducción</string>
+
+    <string name="startRecording">Comenzar a Grabar</string>
+    <string name="voiceNoteName">Nombre para la nota de voz:</string>
+
+    <string name="mandatoryFile">Campo obligatorio</string>
+    <string name="dileName">Debe introducir un nombre para el archivo.</string>
+    <string name="fileError">Error creando el archivo de audio.</string>
+    <string name="recordingError">Error grabando archivo de audio.</string>
+    <string name="recordingFinish">Grabación terminada</string>
+    <string name="recordingFinishMes">La ota de voz a sido creada.</string>
+
+    <string name="audioFileExist"> Existe otra nota de audio con el mismo nombre..\nPor favor, escoja otro nombre.</string>
+
+    <string name="recording">Debe terminar de grabar su nota de voz.</string>
+    <string name="recordAudioFirst">Debes grabar una nota de voz.</string>
+    <string name="audioFileAddToDB">La nota de voz ha sido agregada, y será enviada al servidor.</string>
+
+    <string name="noAudioFileAsociated">No hay ningún archivo de audio asociado.</string>
+
+    <string name="addANewVoiceNote">Nueva nota de voz.</string>
+
+    <string name="audioDeleted">(Archivo eliminado)</string>
+
+    <string name="audioLanguage">Ideoma principal:</string>
+    <string name="translations">Traducciones:</string>
+    <string name="interminated">Indeterminado</string>
+
+    <string name="voiceNoteMainLanguage">Lenguaje de la nota de voz:</string>
+    <string name="translationTo">Traducciones solicitadas:</string>
+    <string name="audioDescription">Descripcion de la nota de voz:</string>
+
+    <string name="addTranslationDialogTitle">Agregar traducción</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- your theme inherits from the material theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- theme customizations -->
+        <item name="colorPrimaryDark">@color/notificationBarColor</item>
+        <item name="colorPrimary">@color/actionBarColor</item>
+    </style>
+
+</resources>

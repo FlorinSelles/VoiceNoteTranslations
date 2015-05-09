@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="voiceNoteTranslationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="audioNotes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="audioFileName" Type="varchar(max)" />
+          <Property Name="description" Type="varchar(max)" Nullable="false" />
+          <Property Name="idLanguage" Type="int" />
+        </EntityType>
+        <EntityType Name="audioTranslations">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idAudio" Type="int" />
+          <Property Name="idLanguage" Type="int" />
+          <Property Name="translationFileName" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="languages">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="languageName" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_audioNotes_language">
+          <End Role="languages" Type="Self.languages" Multiplicity="0..1" />
+          <End Role="audioNotes" Type="Self.audioNotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languages">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="audioNotes">
+              <PropertyRef Name="idLanguage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_audioTranslations_audioNote">
+          <End Role="audioNotes" Type="Self.audioNotes" Multiplicity="0..1" />
+          <End Role="audioTranslations" Type="Self.audioTranslations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="audioNotes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="audioTranslations">
+              <PropertyRef Name="idAudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="voiceNoteTranslationModelStoreContainer">
+          <EntitySet Name="audioNotes" EntityType="Self.audioNotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="audioTranslations" EntityType="Self.audioTranslations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="languages" EntityType="Self.languages" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_audioNotes_language" Association="Self.FK_audioNotes_language">
+            <End Role="languages" EntitySet="languages" />
+            <End Role="audioNotes" EntitySet="audioNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_audioTranslations_audioNote" Association="Self.FK_audioTranslations_audioNote">
+            <End Role="audioNotes" EntitySet="audioNotes" />
+            <End Role="audioTranslations" EntitySet="audioTranslations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="voiceNoteTranslationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="audioNote">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="audioFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idLanguage" Type="Int32" />
+          <NavigationProperty Name="language" Relationship="Self.FK_audioNotes_language" FromRole="audioNotes" ToRole="languages" />
+          <NavigationProperty Name="audioTranslations" Relationship="Self.FK_audioTranslations_audioNote" FromRole="audioNotes" ToRole="audioTranslations" />
+        </EntityType>
+        <EntityType Name="audioTranslation">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idAudio" Type="Int32" />
+          <Property Name="idLanguage" Type="Int32" />
+          <Property Name="translationFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="audioNote" Relationship="Self.FK_audioTranslations_audioNote" FromRole="audioTranslations" ToRole="audioNotes" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="languageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="audioNotes" Relationship="Self.FK_audioNotes_language" FromRole="languages" ToRole="audioNotes" />
+        </EntityType>
+        <Association Name="FK_audioNotes_language">
+          <End Role="languages" Type="Self.language" Multiplicity="0..1" />
+          <End Role="audioNotes" Type="Self.audioNote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languages">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="audioNotes">
+              <PropertyRef Name="idLanguage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_audioTranslations_audioNote">
+          <End Role="audioNotes" Type="Self.audioNote" Multiplicity="0..1" />
+          <End Role="audioTranslations" Type="Self.audioTranslation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="audioNotes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="audioTranslations">
+              <PropertyRef Name="idAudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="voiceNoteTranslationEntities8" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="audioNotes" EntityType="Self.audioNote" />
+          <EntitySet Name="audioTranslations" EntityType="Self.audioTranslation" />
+          <EntitySet Name="languages" EntityType="Self.language" />
+          <AssociationSet Name="FK_audioNotes_language" Association="Self.FK_audioNotes_language">
+            <End Role="languages" EntitySet="languages" />
+            <End Role="audioNotes" EntitySet="audioNotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_audioTranslations_audioNote" Association="Self.FK_audioTranslations_audioNote">
+            <End Role="audioNotes" EntitySet="audioNotes" />
+            <End Role="audioTranslations" EntitySet="audioTranslations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="voiceNoteTranslationModelStoreContainer" CdmEntityContainer="voiceNoteTranslationEntities8">
+          <EntitySetMapping Name="audioNotes">
+            <EntityTypeMapping TypeName="voiceNoteTranslationModel.audioNote">
+              <MappingFragment StoreEntitySet="audioNotes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="audioFileName" ColumnName="audioFileName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="idLanguage" ColumnName="idLanguage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="audioTranslations">
+            <EntityTypeMapping TypeName="voiceNoteTranslationModel.audioTranslation">
+              <MappingFragment StoreEntitySet="audioTranslations">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idAudio" ColumnName="idAudio" />
+                <ScalarProperty Name="idLanguage" ColumnName="idLanguage" />
+                <ScalarProperty Name="translationFileName" ColumnName="translationFileName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="languages">
+            <EntityTypeMapping TypeName="voiceNoteTranslationModel.language">
+              <MappingFragment StoreEntitySet="languages">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="languageName" ColumnName="languageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

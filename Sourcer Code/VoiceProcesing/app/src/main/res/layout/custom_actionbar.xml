@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center|left"
+    android:background="@color/actionBarColor">
+
+    <ImageView
+        android:layout_width="81dp"
+        android:layout_height="76dp"
+        android:id="@+id/imageView3"
+        android:src="@drawable/audio_wave"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="3dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/addANewVoiceNote"
+        android:id="@+id/actionBarTitle_tv"
+        android:layout_marginLeft="20dp"
+        android:textSize="28sp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="10dp"/>
+</LinearLayout>

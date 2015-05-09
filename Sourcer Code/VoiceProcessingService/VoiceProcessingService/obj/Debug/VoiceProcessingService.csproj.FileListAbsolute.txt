@@ -1,0 +1,17 @@
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\VoiceProcessingService.dll.config
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\VoiceProcessingService.dll
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\VoiceProcessingService.pdb
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\EntityFramework.dll
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\EntityFramework.SqlServer.dll
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\Newtonsoft.Json.dll
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\NServiceKit.Common.dll
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\NServiceKit.Interfaces.dll
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\NServiceKit.Text.dll
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\EntityFramework.xml
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\EntityFramework.SqlServer.xml
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\Newtonsoft.Json.xml
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\NServiceKit.Common.xml
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\NServiceKit.Interfaces.xml
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\bin\NServiceKit.Text.xml
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\obj\Debug\VoiceProcessingService.dll
+C:\Users\florin\Documents\Visual Studio 2013\Projects\VoiceProcessingService\VoiceProcessingService\obj\Debug\VoiceProcessingService.pdb

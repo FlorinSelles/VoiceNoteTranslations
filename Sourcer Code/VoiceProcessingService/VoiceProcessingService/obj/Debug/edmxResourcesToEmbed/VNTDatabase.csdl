@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="voiceNoteTranslationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="audioNote">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="audioFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idLanguage" Type="Int32" />
+    <NavigationProperty Name="language" Relationship="Self.FK_audioNotes_language" FromRole="audioNotes" ToRole="languages" />
+    <NavigationProperty Name="audioTranslations" Relationship="Self.FK_audioTranslations_audioNote" FromRole="audioNotes" ToRole="audioTranslations" />
+  </EntityType>
+  <EntityType Name="audioTranslation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idAudio" Type="Int32" />
+    <Property Name="idLanguage" Type="Int32" />
+    <Property Name="translationFileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="audioNote" Relationship="Self.FK_audioTranslations_audioNote" FromRole="audioTranslations" ToRole="audioNotes" />
+  </EntityType>
+  <EntityType Name="language">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="languageName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="audioNotes" Relationship="Self.FK_audioNotes_language" FromRole="languages" ToRole="audioNotes" />
+  </EntityType>
+  <Association Name="FK_audioNotes_language">
+    <End Role="languages" Type="Self.language" Multiplicity="0..1" />
+    <End Role="audioNotes" Type="Self.audioNote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="languages">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="audioNotes">
+        <PropertyRef Name="idLanguage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_audioTranslations_audioNote">
+    <End Role="audioNotes" Type="Self.audioNote" Multiplicity="0..1" />
+    <End Role="audioTranslations" Type="Self.audioTranslation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="audioNotes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="audioTranslations">
+        <PropertyRef Name="idAudio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="voiceNoteTranslationEntities8" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="audioNotes" EntityType="Self.audioNote" />
+    <EntitySet Name="audioTranslations" EntityType="Self.audioTranslation" />
+    <EntitySet Name="languages" EntityType="Self.language" />
+    <AssociationSet Name="FK_audioNotes_language" Association="Self.FK_audioNotes_language">
+      <End Role="languages" EntitySet="languages" />
+      <End Role="audioNotes" EntitySet="audioNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_audioTranslations_audioNote" Association="Self.FK_audioTranslations_audioNote">
+      <End Role="audioNotes" EntitySet="audioNotes" />
+      <End Role="audioTranslations" EntitySet="audioTranslations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

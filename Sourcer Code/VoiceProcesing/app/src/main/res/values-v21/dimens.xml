@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="buttonsWidth">75dp</dimen>
+    <dimen name="buttonsHeight">75dp</dimen>
+    <dimen name="buttonTextSise">28sp</dimen>
+
+
+
+</resources>

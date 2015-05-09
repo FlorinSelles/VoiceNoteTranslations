@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="voiceNoteTranslationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="audioNotes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="audioFileName" Type="varchar(max)" />
+    <Property Name="description" Type="varchar(max)" Nullable="false" />
+    <Property Name="idLanguage" Type="int" />
+  </EntityType>
+  <EntityType Name="audioTranslations">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idAudio" Type="int" />
+    <Property Name="idLanguage" Type="int" />
+    <Property Name="translationFileName" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="languages">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="languageName" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK_audioNotes_language">
+    <End Role="languages" Type="Self.languages" Multiplicity="0..1" />
+    <End Role="audioNotes" Type="Self.audioNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="languages">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="audioNotes">
+        <PropertyRef Name="idLanguage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_audioTranslations_audioNote">
+    <End Role="audioNotes" Type="Self.audioNotes" Multiplicity="0..1" />
+    <End Role="audioTranslations" Type="Self.audioTranslations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="audioNotes">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="audioTranslations">
+        <PropertyRef Name="idAudio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="voiceNoteTranslationModelStoreContainer">
+    <EntitySet Name="audioNotes" EntityType="Self.audioNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="audioTranslations" EntityType="Self.audioTranslations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="languages" EntityType="Self.languages" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_audioNotes_language" Association="Self.FK_audioNotes_language">
+      <End Role="languages" EntitySet="languages" />
+      <End Role="audioNotes" EntitySet="audioNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_audioTranslations_audioNote" Association="Self.FK_audioTranslations_audioNote">
+      <End Role="audioNotes" EntitySet="audioNotes" />
+      <End Role="audioTranslations" EntitySet="audioTranslations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

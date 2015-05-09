@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mplayer_bar_btn"
+        android:src="@drawable/mplayer_bar_btn"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="43dp"
+        android:layout_marginStart="43dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mplayer_player_btn"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/mplayer_player_btn" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mplayer_stop_btn"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/mplayer_player_btn"
+        android:layout_toEndOf="@+id/mplayer_player_btn"
+        android:src="@drawable/mplayer_stop_btn"
+        android:layout_marginLeft="5dp"/>
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mplayer_seekbar"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/mplayer_stop_btn"
+
+        android:thumb="@drawable/seekbar_thumb"
+        android:indeterminate="false"
+        android:layout_alignRight="@+id/mplayer_bar_btn"
+        android:layout_alignEnd="@+id/mplayer_bar_btn" />
+
+</RelativeLayout>

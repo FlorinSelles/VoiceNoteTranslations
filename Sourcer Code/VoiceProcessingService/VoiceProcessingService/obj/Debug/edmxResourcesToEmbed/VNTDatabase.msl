@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="voiceNoteTranslationModelStoreContainer" CdmEntityContainer="voiceNoteTranslationEntities8">
+    <EntitySetMapping Name="audioNotes">
+      <EntityTypeMapping TypeName="voiceNoteTranslationModel.audioNote">
+        <MappingFragment StoreEntitySet="audioNotes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="audioFileName" ColumnName="audioFileName" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="idLanguage" ColumnName="idLanguage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="audioTranslations">
+      <EntityTypeMapping TypeName="voiceNoteTranslationModel.audioTranslation">
+        <MappingFragment StoreEntitySet="audioTranslations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idAudio" ColumnName="idAudio" />
+          <ScalarProperty Name="idLanguage" ColumnName="idLanguage" />
+          <ScalarProperty Name="translationFileName" ColumnName="translationFileName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="languages">
+      <EntityTypeMapping TypeName="voiceNoteTranslationModel.language">
+        <MappingFragment StoreEntitySet="languages">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="languageName" ColumnName="languageName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

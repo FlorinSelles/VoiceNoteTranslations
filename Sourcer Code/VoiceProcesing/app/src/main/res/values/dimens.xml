@@ -1,0 +1,14 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="buttonsWidth">55dp</dimen>
+    <dimen name="buttonsHeight">55dp</dimen>
+    <dimen name="buttonTextSise">28sp</dimen>
+
+    <dimen name="startRecordingTextSize">12sp</dimen>
+    <dimen name="voiceNoteNameTextSize">20sp</dimen>
+
+</resources>
